@@ -3,6 +3,9 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from src.routers.auth import router as stripe_router
 from src.routers.transaction import router as transaction_router
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Payments API")
 
