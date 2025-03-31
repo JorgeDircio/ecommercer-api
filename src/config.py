@@ -4,11 +4,11 @@ from pydantic import Field
 
 class Settings(BaseSettings):
     debug: bool = False
-    secret_key: str = Field(default='S#perS3crEt_9999', alias='SECRET_KEY')
-    server_address: str = Field(default='http://localhost:8000/', alias='BASE_URL')
+    secret_key: str = Field(alias='SECRET_KEY')
+    server_address: str = Field(dalias='BASE_URL')
 
-    stripe_secret_key: str = Field(default='sk_live_...', alias='STRIPE_SECRET_KEY')
-    stripe_publishable_key: str = Field(default='pk_live_...', alias='STRIPE_PUBLISHABLE_KEY')
+    stripe_secret_key: str = Field(alias='STRIPE_SECRET_KEY')
+    stripe_publishable_key: str = Field(alias='STRIPE_PUBLISHABLE_KEY')
     stripe_is_active: bool = False
     stripe_client_id: str | None = None
     stripe_oauth_redirect: str | None = None
