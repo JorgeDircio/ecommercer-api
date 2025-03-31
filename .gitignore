@@ -13,8 +13,6 @@ __pycache__/
 alembic/versions/*
 
 .dockerenv
-docker-compose.override.yml
-docker-compose.yml
 
 dist/
 build/
