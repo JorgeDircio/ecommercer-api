@@ -15,8 +15,8 @@ Asegúrate de tener instalados los siguientes programas:
 1.  **Clona el repositorio:**
 
     ```bash
-    git clone <tu-repositorio-git>
-    cd <nombre-del-repositorio>
+    git clone git@github.com:JorgeDircio/ecommercer-api.git
+    cd ecommercer-api
     ```
 
 2.  **Configura las variables de entorno:**
@@ -24,11 +24,26 @@ Asegúrate de tener instalados los siguientes programas:
     * Añade las siguientes variables de entorno (ajusta los valores según sea necesario):
 
         ```dotenv
-        DATABASE_URL=postgresql://user:password@pgdb:5432/payments_app
-        # Otras variables de entorno necesarias para tu aplicación
+        URL_API_BLUMON_PAY=
+        URL_API_TOKEN=
+        BLUMON_RAW_PASSWORD=
+        BLUMON_USERNAME=
+        BLUMON_CLIENT_ID=
+
+        BASE_URL=
+        BASE_URL_FRONT=
+
+        POSTGRES_DB=payments_app
+        POSTGRES_USER=user
+        POSTGRES_PASSWORD=password
+        POSTGRES_HOST=db
+        POSTGRES_PORT=5432
+        DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+
+        API_BASE=/api/v1
         ```
 
-        **Nota:** `pgdb` es el nombre del servicio de la base de datos en `docker-compose.yml`.
+        **Nota:** Asegúrate de reemplazar los valores de ejemplo (como `password`) con los valores reales. `pgdb` es el nombre del servicio de la base de datos en `docker-compose.yml`.
 
 ## Ejecución
 
@@ -138,12 +153,9 @@ Si prefieres no usar `make`, puedes ejecutar los comandos directamente con `dock
     docker exec -it fastapi_app alembic upgrade head
     ```
 
-    (Asegúrate de que `fastapi_app` coincida con el nombre del servicio de tu aplicación en `docker-compose.yml`.)
 
 * **Acceder a la shell de PostgreSQL:**
 
     ```bash
     docker exec -it pgdb psql -U user -d payments_app
     ```
-
-## Estructura del Proyecto
