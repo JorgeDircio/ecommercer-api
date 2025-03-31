@@ -16,8 +16,5 @@ services:
         value: dpg-cvlcd6muk2gs73865vq0-a
       - key: DATABASE_URL
         sync: false
-    startCommand: |
-      alembic upgrade head && \
-      uvicorn src.main:app --host 0.0.0.0 --port 8000
 version: "1"
 
