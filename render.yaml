@@ -1,0 +1,23 @@
+# Exported from Render on 2025-03-31T17:03:44Z
+services:
+  - type: web
+    name: fastapi-app
+    runtime: docker
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: POSTGRES_USER
+        value: payments_app_user
+      - key: POSTGRES_PASSWORD
+        sync: false
+      - key: POSTGRES_DB
+        value: payments_app
+      - key: POSTGRES_HOST
+        value: dpg-cvlcd6muk2gs73865vq0-a
+      - key: DATABASE_URL
+        sync: false
+    startCommand: |
+      alembic upgrade head && \
+      uvicorn src.main:app --host 0.0.0.0 --port 8000
+version: "1"
+
