@@ -5,12 +5,6 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    debug: bool = False
-    secret_key: str = Field(alias='SECRET_KEY')
-    server_address: str = Field(dalias='BASE_URL')
-
-    stripe_secret_key: str = Field(alias='STRIPE_SECRET_KEY')
-    stripe_publishable_key: str = Field(alias='STRIPE_PUBLISHABLE_KEY')
     stripe_is_active: bool = False
     stripe_client_id: str | None = None
     stripe_oauth_redirect: str | None = None

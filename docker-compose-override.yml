@@ -28,7 +28,6 @@ services:
       - .env # Asegúrate de que esta línea esté presente para cargar el archivo .env
     environment:
       DATABASE_URL: ${DATABASE_URL}
-      DEBUG: ${DEBUG}
 
 volumes:
   pgdata:
