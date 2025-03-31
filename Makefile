@@ -1,3 +1,4 @@
+.PHONY: up down restart build
 
 APP_CONTAINER=fastapi_app
 DB_CONTAINER=pgdb
@@ -29,3 +30,12 @@ restart:
 rebuild:
 	docker-compose build --no-cache
 	docker-compose up
+
+up:
+	docker-compose up
+
+down:
+	docker-compose down
+
+build:
+	docker-compose build
