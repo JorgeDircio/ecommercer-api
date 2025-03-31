@@ -17,11 +17,6 @@ class Settings(BaseSettings):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.check_stripe()
-
-    def check_stripe(self):
-        if self.stripe_secret_key and self.stripe_publishable_key:
-            self.stripe_is_active = True
 
     model_config = SettingsConfigDict(
         env_file=".env",
